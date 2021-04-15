@@ -16,7 +16,9 @@ jobs:
           ruby-version: 2.7.2
       - name: Install dependencies
         run: bundle install
-      - name: Migrate DB if needede
+      - name: Migrate DB if needed
         run: rails db:migrate RAILS_ENV=test
-      - name: Run tests
+      - name: Run unit tests
         run: bundle exec rake
+      - name: Run System tests
+        run: rails test:system
