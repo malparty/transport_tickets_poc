@@ -7,7 +7,15 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
+    services:
+      db:
+        image: postgres:11
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
       - uses: actions/checkout@v2
       - name: Set up Ruby
@@ -15,9 +23,12 @@ jobs:
         with:
           ruby-version: 2.7.2
       - name: Install dependencies
+        env:
+          DATABASE_URL: postgres://postgres:@localhost:5432/test
+          RAILS_ENV: test
         run: bundle install
       - name: Migrate DB if needed
-        run: rails db:migrate RAILS_ENV=test
+        run: rails db:prepare RAILS_ENV=test
       - name: Run unit tests
         run: bundle exec rake
       - name: Install Chrome
