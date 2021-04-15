@@ -8,7 +8,7 @@ class PurchasesTest < ApplicationSystemTestCase
   # end
 
   test "index validation" do
-    visit purchases_url
+    visit '/'
     assert_selector '.errors', count:0 
     assert_selector '#email'
   end
