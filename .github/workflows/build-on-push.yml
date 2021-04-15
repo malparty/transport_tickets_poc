@@ -42,5 +42,7 @@ jobs:
           sudo mv chromedriver /usr/local/bin/chromedriver 
           sudo chmod +x /usr/local/bin/chromedriver 
           chromedriver --version
+          sudo apt-get update 
+          sudo apt-get install -y xvfb 
       - name: Run System tests
         run: rails test:system
