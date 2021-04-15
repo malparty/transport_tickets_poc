@@ -9,8 +9,13 @@ class PurchasesTest < ApplicationSystemTestCase
 
   test "index validation" do
     visit purchases_url
-    assert_selector_not '.error' 
+    assert_selector '.errors', count:0 
     assert_selector '#email'
-    
+  end
+  
+  test "email validation error" do
+    visit '/error'
+    assert_selector '.errors'
+    assert_selector '#email', count:0
   end
 end
