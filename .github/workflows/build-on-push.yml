@@ -24,6 +24,7 @@ jobs:
           ruby-version: 2.7.2
       - name: Install dependencies
         env:
+          POSTGRES_PASSWORD: postgres
           DATABASE_URL: postgres://postgres:@localhost:5432/test
           RAILS_ENV: test
         run: bundle install
