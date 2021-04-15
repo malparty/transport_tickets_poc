@@ -1,11 +1,16 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  email: MyString
-  sessionId: MyString
+  email: max@musterman.de
+  sessionId: "#1234567689ABCDEF"
   isPaid: false
 
 two:
-  email: MyString
-  sessionId: MyString
+  email: xam@namretsum.ed
+  sessionId: "#FEDCBA987654321"
+  isPaid: true
+
+tree:
+  email: ""
+  sessionId: "#FEDCBA987654312"
   isPaid: false

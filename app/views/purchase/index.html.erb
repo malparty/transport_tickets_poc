@@ -1,0 +1,11 @@
+<h1>Transport Tickets POC</h1>
+<% unless @purchase.email.to_s.strip.empty? %>
+<div id='email'>
+    <%= @purchase.email %>
+</div>
+<% end %>
+<% unless @errorMsg.to_s.strip.empty? %>
+<div class="errors">
+    <%= @errorMsg %>
+</div>
+<% end %>

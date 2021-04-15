@@ -7,8 +7,8 @@ class PurchaseTest < ActiveSupport::TestCase
     assert_not purchase.isPaid, "Initiated purchase marked with isPaid true or nil" 
   end
 
-  test "unvalidate" do
-    assert false
-  end
+  # test "unvalidate" do
+  #   assert false
+  # end
   
 end
