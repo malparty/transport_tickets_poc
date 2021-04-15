@@ -21,13 +21,13 @@ jobs:
       - name: Run unit tests
         run: bundle exec rake
       - name: Install Chrome
-        run: | 
-        curl --silent --show-error --location --fail --retry 3 --output /tmp/chromedriver_linux64.zip "http://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip" 
-        cd /tmp 
-        unzip chromedriver_linux64.zip 
-        rm -rf chromedriver_linux64.zip 
-        sudo mv chromedriver /usr/local/bin/chromedriver 
-        sudo chmod +x /usr/local/bin/chromedriver 
-        chromedriver --version
+        run: |
+          curl --silent --show-error --location --fail --retry 3 --output /tmp/chromedriver_linux64.zip "http://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip" 
+          cd /tmp 
+          unzip chromedriver_linux64.zip 
+          rm -rf chromedriver_linux64.zip 
+          sudo mv chromedriver /usr/local/bin/chromedriver 
+          sudo chmod +x /usr/local/bin/chromedriver 
+          chromedriver --version
       - name: Run System tests
         run: rails test:system
