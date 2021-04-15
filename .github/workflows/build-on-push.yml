@@ -1,4 +1,4 @@
-name: learn-github-actions
+name: build-test-on-master-push
 on:
   push:
     branches: [master]
@@ -21,6 +21,6 @@ jobs:
       - name: Run unit tests
         run: bundle exec rake
       - name: Install ChromeDriver
-        run: apt-get install chromium-chromedriver
+        run: sudo apt-get install chromium-chromedriver
       - name: Run System tests
         run: rails test:system
